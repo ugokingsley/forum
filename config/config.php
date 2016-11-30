@@ -7,5 +7,5 @@ define("DB_NAME","talkingspace");
 define("site_title","Welcome to Jplace Forum");
 
 //paths
-//define("BASE_URI","http://".$_SERVER['SERVER_NAME']."/talkingspace/");
+define("BASE_URI","http://".$_SERVER['SERVER_NAME']."/talkingspace/");
 ?>
