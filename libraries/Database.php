@@ -11,7 +11,7 @@ class Database{
 	
 	public function __construct(){
 		//set DSN
-		$dsn = 'mysql:host='.$this-.host.';dbname='.$this->dbname;
+		$dsn = 'mysql:host=' .$this->host. ';dbname=' .$this->dbname;
 		//set options
 		$options=array(
 			PDO::ATTR_PERSISTENT=>true,
@@ -29,7 +29,6 @@ class Database{
 	
 	public function query($query){
 		$this->stmt=$this->dbh->prepare($query);
-	
 	}
 	
 	public function bind($param,$value,$type=null){
@@ -64,7 +63,7 @@ class Database{
 		return $this->stmt->fetch(PDO::FETCH_OBJ);
 	}
 	
-	public function resultset(){
+	public function rowCount(){
 		return $this->stmt->rowCount();
 	}
 	
@@ -76,7 +75,7 @@ class Database{
 		return $this->dbh->beginTransaction();
 	}
 	
-	public functionendTransaction(){
+	public function endTransaction(){
 		return $this->dbh->commit();
 	}
 	
