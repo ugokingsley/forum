@@ -18,6 +18,13 @@
 	<script src="<?php echo BASE_URI ;?>templates/js/jquery.min.js"></script>
 	<script src="<?php echo BASE_URI ;?>templates/js/bootstrap.js"></script>
     <script src="<?php echo BASE_URI ;?>templates/js/ckeditor/ckeditor.js"></script>
+	<?php 
+	//check if site title is set, else assign it 
+	if(!isset($title)){
+		$title=site_title;
+	}
+	?>
+	
   </head>
 
   <body>
@@ -48,6 +55,6 @@
 			<div class="col-md-8">
 				<div class="main-col">
 					<div class="block">
-						<h1 class="pull-left">Welcome To Jplace Forum<h1>
+						<h1 class="pull-left"><?php echo $title; ?><h1>
 						<h4 class="pull-right">A simple Testimony Forum<h4>
 						<div class="clearfix"></div><hr/>

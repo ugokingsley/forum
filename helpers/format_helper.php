@@ -15,4 +15,10 @@ function urlFormat($str){
 	$str=urlencode($str);
 	return $str;
 }
+
+
+//add class name active if property is active
+function is_active($category){
+	
+}
 ?>
