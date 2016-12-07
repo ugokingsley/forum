@@ -63,7 +63,6 @@ public function getCategory($category_id){
 		$row=$this->db->single();
 		return $row;
 }
-
 	//get total replies
 	
 	public  function getTotalReplies($topic_id){
@@ -72,6 +71,28 @@ public function getCategory($category_id){
 		return $this->db->rowCount();
 	}
 	
+	public function getTopic($id){
+		$this->db->query("SELECT topics.*,users.username,users.name,users.avatar FROM topics
+		INNER JOIN users
+		ON topics.user_id=users.id
+		WHERE topics.id=:id
+		");
+		$this->db->bind(':id',$id);
+		$row=$this->db->single();
+		return $row;
+	}
+	
+	public function getReplies($topic_id){
+		$this->db->query("SELECT replies.*,users.* FROM replies
+		INNER JOIN users
+		ON replies.user_id=users.id
+		WHERE replies.topic_id=:topic_id
+		ORDER BY create_date ASC
+		");
+		$this->db->bind(':topic_id',$topic_id);
+		//assign result set
+		$results=$this->db->resultset();
+		return $results;
+	}
 }
-
 ?>

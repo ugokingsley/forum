@@ -19,6 +19,17 @@ function urlFormat($str){
 
 //add class name active if property is active
 function is_active($category){
+	if(isset($_GET['category'])){
+		if($_GET['category']==$category){
+			return 'active';
+		}else{
+			return '';
+		}
+	} else {
+		if($category==null){
+			return 'active';
+		}
+	}
 	
 }
 ?>
