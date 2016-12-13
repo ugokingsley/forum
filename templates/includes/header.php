@@ -58,3 +58,4 @@
 						<h1 class="pull-left"><?php echo $title; ?><h1>
 						<h4 class="pull-right">A simple Testimony Forum<h4>
 						<div class="clearfix"></div><hr/>
+						<?php displayMessage() ; ?>

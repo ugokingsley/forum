@@ -23,12 +23,13 @@
 							<div class="form-group">
 								<label>*Upload Avatar</label>
 								<input class="form-control" type="file" name="avatar">
-							</div><p class="help-block"></p>
+							</div>
+							<p class="help-block"></p>
 							<div class="form-group">
 								<label>About Me</label>
 								<textarea class="form-control" type="text" rows="6" cols="80" name="about" placeholder="Tell us about yourself(optional)"></textarea>
 							</div>
 							
-							<input type="submit" class="btn btn-primary" value="Register">
+							<input type="submit" name="register" class="btn btn-primary" value="Register" />
 						</form>
 <?php include('includes/footer.php');?>

@@ -37,6 +37,22 @@ class Topic{
 	}
 	
 	
+	//get by categories
+	public function getByUser($user_id){
+		$this->db->query("SELECT topics.*,categories.*,users.username,users.avatar,categories.name FROM topics
+		INNER JOIN categories
+		ON topics.category_id=categories.id
+		INNER JOIN users
+		ON topics.user_id=users.id
+		WHERE topics.user_id=:user_id
+		");
+	$this->db->bind(':user_id',$user_id);
+	//assign the sesult set
+	$results=$this->db->resultset();
+	return $results;
+	}
+	
+	
 	//get total numb of topics
 	
 	public  function getTotalTopics(){
@@ -53,16 +69,19 @@ class Topic{
 		return $this->db->rowCount();
 	}
 	
-/*
-*	get category by id
-*/	
-public function getCategory($category_id){
-		$this->db->query("SELECT * FROM categories WHERE id=:category_id");
-		$this->db->bind(':category_id',$category_id);
-		//assign row
-		$row=$this->db->single();
-		return $row;
-}
+	/*
+	*	get category by id
+	*/	
+	public function getCategory($category_id){
+			$this->db->query("SELECT * FROM categories WHERE id=:category_id");
+			$this->db->bind(':category_id',$category_id);
+			//assign row
+			$row=$this->db->single();
+			return $row;
+	}
+	
+	
+	
 	//get total replies
 	
 	public  function getTotalReplies($topic_id){
@@ -94,5 +113,7 @@ public function getCategory($category_id){
 		$results=$this->db->resultset();
 		return $results;
 	}
+	
+	
 }
 ?>
